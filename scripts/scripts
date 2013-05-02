@@ -1,0 +1,63 @@
+
+admin () 
+{ 
+	ssh sjcopsadm01.prod.yousendit.com 
+}
+
+crowbar ()
+{
+	ssh root@10.10.30.140   
+} 
+
+dev01 ()
+{
+	ssh tcook@192.168.242.151
+}
+
+crowbar_local ()
+{
+	ssh crowbar@192.168.242.101
+}
+
+cb_fw4040 ()
+{
+	if [ $1 == "test" ]
+		then
+			echo "test passed"
+	else 
+		#sudo ssh -L 4040:10.30.135.10:4040 tcook@10.10.30.140 
+		echo "Test failed"
+	fi
+}
+
+
+cb_fw80 ()
+{
+	if [ $1 == "test" ]
+		then
+			echo "test passed"
+	else 
+		#sudo ssh -L 80:10.30.135.10:80 tcook@10.10.30.140 
+		echo "Test failed"
+	fi
+}
+
+
+cb_fw3000 ()
+{
+	if [ $1 == "test" ]
+		then
+			echo "test passed"
+	else 
+		#sudo ssh -L 3000:10.30.135.10:3000 tcook@10.10.30.140 
+		echo "Test failed"
+	fi
+}
+
+
+
+port_forward ()
+{
+	for i in 4040 80 3000 ; do /usr/bin/tcmd sudo ssh -L $i:10.30.135.10:$i tcook@10.10.30.140 ; done 
+}
+
