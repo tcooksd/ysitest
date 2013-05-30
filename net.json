@@ -4,7 +4,7 @@
   "attributes": {
     "network": {
       "start_up_delay": 30,
-      "mode": "single",
+      "mode": "dual",
       "teaming": {
         "mode": 6
       },
@@ -77,13 +77,13 @@
           "pattern": "dual/.*/.*",
           "conduit_list": { 
             "intf0": {
-              "if_list": [ "?1g1" ]
+              "if_list": [ "1g1" ]
             },
             "intf1": {
-              "if_list": [ "?1g2" ]
+              "if_list": [ "1g2" ]
             },
             "intf2": {
-              "if_list": [ "?1g2" ]
+              "if_list": [ "1g1" ]
             }
           }
         },
@@ -91,13 +91,13 @@
           "pattern": "single/.*/.*",
           "conduit_list": { 
             "intf0": {
-              "if_list": [ "?1g1" ]
+              "if_list": [ "1g1" ]
             },
             "intf1": {
-              "if_list": [ "?1g1" ]
+              "if_list": [ "1g1" ]
             },
             "intf2": {
-              "if_list": [ "?1g1" ]
+              "if_list": [ "1g1" ]
             }
           }
         },
@@ -166,6 +166,7 @@
           "subnet": "10.30.132.0",
           "netmask": "255.255.255.0",
           "broadcast": "10.30.132.255",
+          "router": "10.30.132.1",
 	  "router_pref": 20,
           "ranges": {
             "router": { "start": "10.30.132.1", "end": "10.30.132.49" },
@@ -180,8 +181,6 @@
           "subnet": "10.30.133.0",
           "netmask": "255.255.255.0",
           "broadcast": "10.30.133.255",
-	  "router": "10.30.133.1",
-	  "router_pref":  5,
           "ranges": {
             "host": { "start": "10.30.133.129", "end": "10.30.133.191" }
           }
